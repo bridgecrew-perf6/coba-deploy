@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head', {title: "Form Edit"}) %>
+<body>
+    <%- include('./partials/navbar') %>
+    <div class="container detail p-3">
+        <div class="container-fluid pt-3">
+            <h2>Add New Art</h2>
+            <form action="/arts/add" method="post">
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Art Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter Art Name" name="name">
+                          </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="artist" class="form-label">Artist Name</label>
+                            <input type="text" class="form-control" id="artist" placeholder="Enter Artist Name" name="artist">
+                          </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                  <label for="date" class="form-label">Created Date</label>
+                  <input type="date" class="form-control" id="date" name="date">
+                </div>
+                <div class="mb-3">
+                    <label for="photo" class="form-label">Art Photo URL</label>
+                    <input type="text" class="form-control" id="photo" placeholder="Enter Photo URL" name="photo">
+                </div>
+                <div class="mb-3">
+                    <label for="placeOfOrigin" class="form-label">Art Origin</label>
+                    <input type="text" class="form-control" id="placeOfOrigin" placeholder="Enter Art Origin" name="placeOfOrigin">
+                  </div>
+                  <div class="mb-3">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" rows="5" id="description" name="description"></textarea>
+                  </div>
+                <button type="submit" class="btn btn-primary">Add Art</button>
+              </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head', {title: "Home"}) %>
+<body>
+    <%- include('./partials/navbar') %>
+    <div class="container home pt-3">
+        <div class="mb-3">
+            <form action="/" method="get">
+                <div class="row-search">
+                    <div class="col1">
+                        <input type="text" class="form-control" placeholder="Search By Title Or Name" name="name">
+                    </div>
+                    <div class="col2">
+                        <input type="text" class="form-control" placeholder="Or Search By Artist" name="artist">
+                    </div>
+                    <div class="col3">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <hr>
+        <div class="alert alert-info">
+            Jumlah seluruh art adalah <%= notif.totalArt %>. Untuk art tertua yaitu berasal dari tahun <%= notif.oldestYear %>, serta untuk yang terbaru dari tahun <%= notif.latestYear %>.
+        </div>
+        <hr>
+        <div class="list">
+            <% if (arts.length) { %>
+                <% arts.forEach(e => { %>
+                    <% const {id, name, photo} = e %>
+                    <%- include('./partials/card', {id, name, photo}) %>
+                <% }) %>
+            <% } else { %>
+                <h2>Art is not exits.</h2>
+            <%}%>
+        </div>
+    </div>
+    <%- include('./partials/modal') %>
+    <script>
+        function passData(id, name) {
+            document.getElementById('modal-title').innerHTML = `Confirmation`;
+            document.getElementById('modal-body').innerHTML = `Are You Sure To Delete <strong>"${name}"</strong> ?`;
+            document.getElementById('btn-submit-modal').addEventListener('click', () => {
+                window.location.href = `/arts/${id}/delete`;
+            });
+        }
+    </script>
+</body>
+</html>

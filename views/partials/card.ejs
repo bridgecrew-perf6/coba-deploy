@@ -1,0 +1,12 @@
+<div class="card shadow" style="width:45%;">
+    <img class="card-img-top" src="<%= photo %>" alt="Card image" style="width:100%; height:100%;">
+    <div class="card-body">
+      <h5 class="card-title"><%= name %></h5>
+      <p class="card-text">Some quick example test to build on the caard title and make up the bulk of the card's element</p>
+      <div class="btn-card">
+        <a href="/arts/<%= id %>/" class="btn btn-primary">See Detail</a>
+        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal" onclick="passData('<%= id %>','<%= name %>')">Delete</button>
+      </div>
+    </div>
+</div>
+    
